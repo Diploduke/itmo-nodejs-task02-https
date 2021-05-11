@@ -14,7 +14,6 @@ const tuc = {
 };
 
 app
-  // .all((r, rs) => rs.status(200).set(tuc))
   .get('/', (r, rs) => { rs.status(200).set(tuc).end('79213589765') })
   .get('/login/', (r, rs) => { rs.status(200).set(tuc).end('79213589765') })
   .get('/sample/', (r, rs) => { 
@@ -22,13 +21,12 @@ app
         return x * Math.pow(this, 2);
       }`;
     rs.status(200).set(tuc).end(textFunction)
-    // rs.end = textFunction + '\n';
   })
 
   .use((r, rs, n) => { r.errorMessage = 'Не найдено!'; next(); })
   .use(r => r.res.status(404).set(huc).send(r.errorMessage))
-  .use((e, r, rs, n) => rs.status(500).set(huс).send(`Ошибка: ${e}`));
+  .use((e, r, rs, n) => rs.status(500).set(huс).send(`Ошибка: ${e}`))
 
-  // .listen(4321);
-  module.exports = h1(app)
-  .listen(process.env.PORT || PORT, () => log(process.pid));
+  .listen(4321);
+// module.exports = h1(app)
+//   .listen(process.env.PORT || PORT, () => log(process.pid));
