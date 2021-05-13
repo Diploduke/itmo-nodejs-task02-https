@@ -27,6 +27,6 @@ app
   .use(r => r.res.status(404).set(huc).send(r.errorMessage))
   .use((e, r, rs, n) => rs.status(500).set(huc).send(`Ошибка: ${e}`))
   // .set(tuc);
-  .listen(4321);
-// module.exports = h1(app)
-//   .listen(process.env.PORT || PORT, () => log(process.pid));
+  // .listen(4321);
+module.exports = h1(app)
+  .listen(process.env.PORT || PORT, () => log(process.pid));
